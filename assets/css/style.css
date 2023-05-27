@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eee;
+}
+
+.start_button,
+.Rules_box,
+.quiz_box,
+.result_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.start_button button {
+
+    font-size: 25px;
+    padding: 15px 20px;
+    color: #fff;
+    background: #ed4516;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start_button button:hover {
+    color: #ed4516;
+    background-color: #fff;
+    border: 1px solid #ed4516;
+}
+
+
+.Rules_box {
+    display: none;
+    background-color: #fff;
+    width: 600px;
+    border: 2px solid #ed4516;
+    border-radius: 5px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
+        0 8055px 20px 0 rgba(0, 0, 0, 0.2);
+
+
+}
+
+.Rules_box .Rules-title {
+    font-size: 25px;
+    font-weight: 400;
+    color: #ed4516;
+    height: 50px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 30px;
+}
+
+.Rules_box .Rules-list {
+    padding: 20px 30px;
+}
+
+.Rules_box .Rules-list .Rule {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.Rules_box .Rules-list .Rule span {
+
+    border-bottom: 2px solid #ed4516;
+    font-weight: 700;
+}
+
+.Rules_box .buttons {
+    height: 60px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Rules_box .buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 270px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ed4516;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.Rules_box .buttons button i {
+    position: absolute;
+    padding-left: 50px;
+}
+
+.Rules_box .buttons button:hover {
+    background-color: #fff;
+    color: #ed4516;
+    border: 1px solid #ed4516;
+    font-weight: 500;
+}
+
+.quiz_box {
+    display: none;
+    background-color: #fff;
+    width: 600px;
+    border-radius: 5px;
+    pointer-events: none;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
+        0 8055px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.quiz_box header {
+    position: relative;
+    z-index: 2;
+    height: 60px;
+    padding: 0 40px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.quiz_box header .title {
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+.quiz_box header .title i {
+    color: #ed4516;
+    font-size: 40px;
+}
+
+.quiz_box header .timer {
+    height: 45px;
+    padding: 0 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70px;
+    margin-right: 0px;
+}
+
+.quiz_box header .timer .time_icon {
+    color: #ed4516;
+    font-size: 25px;
+}
+
+.quiz_box header .timer .timer_sec {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ed4516;
+}
+
+.time_line_des {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 3px;
+    background: #ed4516;
+}
+
+
+.quiz_box section {
+    padding: 25px 30px 20px 30px;
+
+}
+
+.quiz_box section .question {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.quiz_box section .answers_list {
+    padding: 20px 0;
+    display: block;
+}
+
+.quiz_box section .answers_list .answer {
+    padding: 15px 15px;
+    background-color: #f19b8362;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.quiz_box section .answers_list .answer:last-child {
+    margin-bottom: 0;
+}
+
+footer {
+    height: 90px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+footer .total_question span {
+
+    display: flex;
+    position: absolute;
+    user-select: none;
+    margin-top: -50px;
+
+}
+
+footer .total_question span p {
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+footer .total_question span p:first-child {
+    padding-left: 0px;
+}
+
+footer button {
+
+    background-color: #ed4516;
+    color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 250px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+footer button:hover {
+    background-color: #fff;
+    color: #ed4516;
+    border: 1px solid #ed4516;
+}
+
+.result_box {
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    padding: 25px 30px;
+    width: 550px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: none;
+    border: 2px solid #eee;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
+        0 8055px 20px 0 rgba(0, 0, 0, 0.2);
+
+
+}

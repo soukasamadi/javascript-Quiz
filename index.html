@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/f46d40c0d4.js" crossorigin="anonymous"></script>
+    <title>JavaScript Quiz</title>
+</head>
+
+<body>
+    <!-- initial start button -->
+    <div class="start_button"><button>Start Quiz </button></div>
+
+    <!-- Quiz Rules SEction -->
+    <div class="Rules_box">
+        <div class="Rules-title"><span>Rules of JavaScript Quiz</span></div>
+        <div class="Rules-list">
+            <div class="Rule">. You will have only <span>30 seconds</span> to select an option.</div>
+            <div class="Rule">. You will get your score at the end of the quiz.</div>
+            <div class="Rule">. You can NOT unselect your answer.</div>
+            <div class="Rule">. You can NOT select any option after the time is up.</div>
+            <div class="Rule">. You can NOT leave the quiz once it is started.</div>
+            <div class="Rule">. You can NOT select more than one answer.</div>
+
+        </div>
+        <div class="buttons">
+            <button class="exit">Exit</button>
+            <button class="restart">Start <i class="fa fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Quiz Section-->
+    <div class="quiz_box">
+        <header>
+
+            <div class="title"><i class="fa-brands fa-square-js"></i> JavaScript Quiz</div>
+            <div class="timer">
+                <div class="timer_sec">30s</div>
+                <div class="time_icon"><i class="fa fa-clock-rotate-left"></i></div>
+            </div>
+
+        </header>
+        <section>
+            <div class="question">
+                <span>What does JavaScript stands for?</span>
+
+                <!-- Question Area  -->
+            </div>
+            <div class="answers_list">
+                <div class="answer">
+                    <span>Javascript if a programming language</span>
+                </div>
+                <div class="answer">
+                    <span>Javascript if a programming language</span>
+                </div>
+                <div class="answer">
+                    <span>Javascript if a programming language</span>
+
+                </div>
+                <div class="answer">
+                    <span>Javascript if a programming language</span>
+
+                </div>
+                <!-- option Area -->
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <div class="total_question">
+                <!--answered question number -->
+                <span>
+                    <p>2</p>
+                    <p>of</p>
+                    <p>5</p>
+                    <p>Questions</p>
+                </span>
+            </div>
+            <button class="next_question">Next</button>
+            <div class="time_line_des"></div>
+        </footer>
+    </div>
+
+    <!-- Result Section-->
+    <div class="result_box">
+       
+        <div class="complete_text">You've Done!</div>
+        <div class="icon">
+            <i class="fa fa-trophy"></i>
+        </div>
+        <div class="score_text">
+            <!-- Score Result  -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Restart</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+
+    <script src="js/questions.js"></script>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
