@@ -13,6 +13,7 @@ body {
 .Rules_box,
 .quiz_box,
 .result_box {
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -40,7 +41,7 @@ body {
 
 
 .Rules_box {
-    display: none;
+    visibility: hidden;
     background-color: #fff;
     width: 600px;
     border: 2px solid #ed4516;
@@ -114,9 +115,10 @@ body {
 }
 
 .quiz_box {
-    display: none;
+    visibility: hidden;
     background-color: #fff;
     width: 600px;
+    border: 2px solid #ed4516;
     border-radius: 5px;
     pointer-events: none;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
@@ -274,19 +276,18 @@ body {
 }
 
 .result_box {
-
+    visibility: hidden ;
     background: #fff;
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
     width: 600px;
+    border: 2px solid #ed4516;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
+        0 8055px 20px 0 rgba(0, 0, 0, 0.2);
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    border: 2px solid #eee;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
-        0 8055px 20px 0 rgba(0, 0, 0, 0.2);
-
 
 }
 
@@ -374,7 +375,7 @@ body {
     font-weight: 500;
     margin: 10px 0;
     border-bottom: 2px solid #eee;
-   
+
 }
 
 .result_box .score_text span p {
