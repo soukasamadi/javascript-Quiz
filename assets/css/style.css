@@ -41,14 +41,15 @@ body {
 
 
 .Rules_box {
-    visibility: hidden;
+
     background-color: #fff;
     width: 600px;
     border: 2px solid #ed4516;
     border-radius: 5px;
+    pointer-events: none;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
         0 8055px 20px 0 rgba(0, 0, 0, 0.2);
-
+    opacity: 0;
 
 }
 
@@ -115,7 +116,7 @@ body {
 }
 
 .quiz_box {
-    visibility: hidden;
+
     background-color: #fff;
     width: 600px;
     border: 2px solid #ed4516;
@@ -123,6 +124,10 @@ body {
     pointer-events: none;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
         0 8055px 20px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(0.9);
+
 }
 
 .quiz_box header {
@@ -276,7 +281,7 @@ body {
 }
 
 .result_box {
-    visibility: hidden ;
+    opacity: 0;
     background: #fff;
     border-radius: 5px;
     display: flex;
@@ -285,6 +290,7 @@ body {
     border: 2px solid #ed4516;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
         0 8055px 20px 0 rgba(0, 0, 0, 0.2);
+    pointer-events: none;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -381,4 +387,11 @@ body {
 .result_box .score_text span p {
     padding: 0 4px;
     font-weight: 600;
+}
+
+.Rules_box.visible_rules_box{
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }

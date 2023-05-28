@@ -58,3 +58,47 @@ let questions = [
     },
 
 ];
+
+// get All Elements from index.html file
+
+let startButton = document.getElementsByClassName('start_button')[0];
+let RulesBox = document.getElementsByClassName('Rules_box')[0];
+let exit = RulesBox.getElementsByClassName('exit')[0];
+let next = RulesBox.getElementsByClassName('start')[0];
+let quizBox = document.querySelector(".quiz_box");
+let answerList = document.getElementsByClassName('answers_list')[0];
+let resultBox = document.getElementsByClassName('result_box')[0];
+let timeDescount = document.getElementsByClassName("timer timer_sec")[0];
+let restart = resultBox.getElementsByClassName('restart')[0];
+const quitQuiz = resultBox.getElementsByClassName('quit')[0];
+
+startButton.addEventListener("click", showRulesBox);
+exit.addEventListener("click", backInitialStartBtn);
+next.addEventListener("click", startQuiz);
+
+
+
+function showRulesBox() {
+    RulesBox.classList.add("visible_rules_box");
+}
+function backInitialStartBtn() {
+    RulesBox.classList.remove("visible_rules_box");
+}
+
+
+function startQuiz() {
+    RulesBox.classList.remove("visible_rules_box");
+    quizBox.style.opacity = "1";
+    quizBox.style.pointerEvents = "auto";
+    appearQuestions(0);
+    startTimer(30);
+    questionCounter(1);
+
+
+}
+
+//destoring question from the array
+function appearQuestions(i) {
+    let questions = document.getElementsByClassName('question')[0];
+    
+}
