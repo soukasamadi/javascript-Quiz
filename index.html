@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://kit.fontawesome.com/f46d40c0d4.js" crossorigin="anonymous"></script>
     <title>JavaScript Quiz</title>
 </head>
@@ -43,7 +42,7 @@
             </div>
 
         </header>
-        <section>
+        <div class="question_answers">
             <div class="question">
                 <span>What does JavaScript stands for?</span>
 
@@ -66,38 +65,39 @@
                 </div>
                 <!-- option Area -->
             </div>
-        </section>
+        </div>
 
         <!-- footer -->
         <footer>
+            <button class="next_question">Next</button>
             <div class="total_question">
                 <!--answered question number -->
-                <span>
-                    <p>2</p>
-                    <p>of</p>
-                    <p>5</p>
-                    <p>Questions</p>
-                </span>
+
+                <p class="current_question">2</p>
+                <p>of</p>
+                <p>5</p>
+
+
             </div>
-            <button class="next_question">Next</button>
             <div class="time_line_des"></div>
         </footer>
     </div>
 
     <!-- Result Section-->
     <div class="result_box">
-       
-        <div class="complete_text">You've Done!</div>
+
+        <div class="text"> <span> Congratulation!</span> You've Done!</div>
         <div class="icon">
-            <i class="fa fa-trophy"></i>
+            <i class="fa fa-trophy fa-beat"></i>
         </div>
-        <div class="score_text">
+        <div class="score">
             <!-- Score Result  -->
         </div>
         <div class="buttons">
             <button class="restart">Restart</button>
             <button class="quit">Quit Quiz</button>
         </div>
+
     </div>
 
 
