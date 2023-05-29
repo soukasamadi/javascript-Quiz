@@ -3,39 +3,39 @@
 let questions = [
     {
         number: 1,
-        question: "Inside which HTML element do we put the JavaScript?",
-        answer: "<script>",
-        optionA: "<js>",
-        optionB: "<scripting>",
-        optionC: "<Head>",
-        optionD: "<script>"
-
-    },
-    {
-        number: 2,
-        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        answer: "<script src='xxx.js'>",
-       optionA: "<script href='xxx.js'>",
-        optionB: "<script name='xxx.js'>",
-        optionC: "<script src='xxx.js'>",
-        optionD: "<script type='xxx.js'>"
-
-    },
-    {
-        number: 3,
         question: "How do you write 'Hello World' in an alert box?",
-        answer: "alert('Hello World!')",
-       optionA: "alert('Hello World!')",
+        cAnswer: "alert('Hello World!')",
+        optionA: "alert('Hello World!')",
         optionB: "alertt('Hello World!')",
         optionC: "print('Hello World!')",
         optionD: "msgBox('Hello World!')"
 
     },
     {
+        number: 2,
+        question: "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
+        cAnswer: "if (i != 5)",
+        optionA: "if (i <> 5)",
+        optionB: "if i =! 5 then",
+        optionC: "if (i != 5)",
+        optionD: "if i <> 5"
+
+    },
+    {
+        number: 3,
+        question: "How does a FOR loop start?",
+        cAnswer: "",
+        optionA: "for i = 5 to 10",
+        optionB: "for(i = 0; i<= 5; i++)",
+        optionC: "for(i<= 5; i++)",
+        optionD: "for(i = 0; i<= 5)"
+
+    },
+    {
         number: 4,
         question: "How do you create a function in JavaScript?",
-        answer: "function myFunction()",
-       optionA: "function:myFunction()",
+        cAnswer: "function myFunction()",
+        optionA: "function:myFunction()",
         optionB: "function myFunction()",
         optionC: "function = myFunction()",
         optionD: "function == myFunction()"
@@ -44,8 +44,8 @@ let questions = [
     {
         number: 5,
         question: "How to write an IF statement in JavaScript?",
-        answer: "if (i == 5){}",
-       optionA: "if i = 5",
+        cAnswer: "if (i == 5){}",
+        optionA: "if i = 5",
         optionB: "if i = 5 then",
         optionC: "if i == 5 then",
         optionD: "if (i == 5){}"
@@ -63,7 +63,7 @@ let exit = RulesBox.getElementsByClassName('exit')[0];
 let start = RulesBox.getElementsByClassName('start')[0];
 let quizBox = document.getElementsByClassName("quiz_box")[0];
 let questionArea = document.getElementsByClassName("question")[0];
-const answerList = document.querySelector(".answers_list");
+const answerList = document.getElementsByClassName("answers_list")[0];
 let resultBox = document.getElementsByClassName('result_box')[0];
 let timeDescount = document.getElementsByClassName("timer timer_sec")[0];
 let restart = resultBox.getElementsByClassName('restart')[0];
@@ -94,6 +94,7 @@ function startQuiz() {
     RulesBox.classList.remove("visible_rules_box");
     quizBox.classList.add("visibleQuizBox");
     appearQuestions(0);
+    questionCounter(1);
     /* startTimer(30);
      questionCounter(1);*/
 
@@ -119,91 +120,93 @@ function restartQuiz() {
     questionN = 1;
     playerScore = 0;
 
-    appearQuestions(countQuestion); //calling showQestions function
-    questionCounter(questionN); //passing questionN value to queCounter
-    clearCounter(counter); //clear counter
-    startTimer(questionTime); //calling startTimer function
+    appearQuestions(countQuestion); 
+    questionCounter(questionN); 
+    clearCounter(counter); 
+    startTimer(questionTime); 
 
-    next.classList.remove("show_btn"); //hide the next button
+    //next.classList.remove("show_btn"); 
 }
 
 //quit Quiz Button
 function quitQuiz() {
     window.location.reload();
 }
-/*
+
 //next Button
-function nextQuestion(){
-    if (countQuestion < questions.length - 1) { //if question count is less than total question length
-        countQuestion++; //increment the countQuestion value
-        questionN++; //increment the questionN value
-        appearQuestions(countQuestion); //calling showQestions function
-        questionCounter(questionN); //passing questionN value to queCounter
-        clearConter(counter); //clear counter
-        clearConter(counterLine); //clear counterLine
-        startTimer(timeValue); //calling startTimer function
-        startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Time Left"; //change the timeText to Time Left
-        next_btn.classList.remove("show"); //hide the next button
+function nextQuestion() {
+    if (countQuestion < questions.length - 1) {
+        countQuestion++;
+        questionN++;
+        appearQuestions(countQuestion);
+        questionCounter(questionN);
+        clearCounter(counter);
+        startTimer(timeValue);
+        //next .classList.remove("show_btn");
     } else {
-        clearConter(counter); //clear counter
-        clearConter(counterLine); //clear counterLine
-        showResult(); //calling showResult function
+        clearCounter(counter);
+        showResult();
     }
 }
-*/
+
 
 
 
 
 //destoring questions from the array
-function appearQuestions(i) {
+function appearQuestions(x) {
 
     //insert Html (question + options) content 
-    let questionHtml = '<span>' + questions[i].number + ". " + questions[i].question + '</span>';
+    let questionHtml = '<span>' + questions[x].number + ". " + questions[x].question+ '</span>';
 
     questionArea.innerHTML = questionHtml;
 
-    let optionHtml = '<div class="answer"><span>' + "a. " + questions[i].optionA + '</span></div>'
-    + '<div class="answer"><span>' + "b. " + questions[i].optionB + '</span></div>'
-        + '<div class="answer"><span>' + "c. " + questions[i].optionC + '</span></div>'
-        + '<div class="answer"><span>' + "d. " + questions[i].optionD + '</span></div>';
+    let optionHtml = '<div class="answer"><span>' + questions[x].optionA + '</span></div>'
+        + '<div class="answer"><span>' + questions[x].optionB + '</span></div>'
+        + '<div class="answer"><span>' + questions[x].optionC + '</span></div>'
+        + '<div class="answer"><span>' + questions[x].optionD + '</span></div>';
 
     answerList.innerHTML = optionHtml;
 
-}
 
-/*let answerr = answerList.querySelectorAll('.answer');
-for (let i = 0; i < answerr.length; i++) {
-    answerr[i].setAttribute("onclick", "answerSelected(this)");
-}
+
+    let answerr = answerList.querySelectorAll('.answer');
+    for (let i = 0; i < answerr.length; i++) {
+        answerr[i].setAttribute("onclick", "answerSelected(this)");
+    }
 }
 
 function answerSelected(answer) {
-clearCounter(counter);
+    clearCounter(counter);
 
-let playerAnswer = answer.textContent;
-let correctAnswer = questions[countQuestion].answer;
-const allOptions = answerList.children.length;
+    let playerAnswer = answer.textContent;
+    let correctAnswer = questions[countQuestion].cAnswer;
+    const allOptions = answerList.children.length;
 
-if (playerAnswer == correctAnswer) {
-    playerScore += 1;
-    answer.classList.add("correct");
-    console.log("Correct Answer");
-    console.log("Your correct answers = " + playerScore);
-} else {
-    answer.classList.add("incorrect");
-    console.log("Wrong Answer");
+    if (playerAnswer == correctAnswer) {
+        playerScore += 1;
+        answer.classList.add("correct");
+        console.log("Correct Answer");
+        console.log("Your correct answers = " + playerScore);
+    } else {
+        answer.classList.add("incorrect");
+        console.log("Wrong Answer");
 
-    for (i = 0; i < allOptions; i++) {
-        if (answerList.children[i].textContent == correctAnswer) {
-            answerList.children[i].setAttribute("class", "option correct");
+        for (i = 0; i < allOptions; i++) {
+            if (answerList.children[i].textContent == correctAnswer) {
+                answerList.children[i].setAttribute("class", "option correct");
+            }
         }
     }
+    for (i = 0; i < allOptions; i++) {
+        answerList.children[i].classList.add("disabled");
+       // next.classList.add("show_btn");
+    }
 }
-for (i = 0; i < allOptions; i++) {
-    answerList.children[i].classList.add("disabled");
-    next.classList.add("show");
-}
-}*/
 
+
+function questionCounter(i) {
+    
+    let totalQueCounTag = '<span><p>' + i + '</p> of <p>' + questions.length + '</p> </span>';
+    footerQuestionCounter.innerHTML = totalQueCounTag;  
+}

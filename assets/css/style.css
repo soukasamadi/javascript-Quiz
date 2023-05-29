@@ -223,6 +223,22 @@ body {
     margin-bottom: 0;
 }
 
+.quiz_box section .answers_list .answer.correct {
+    color: #155724;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.quiz_box section .answers_list .answer.incorrect {
+    color: #721c24;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.quiz_box section .answers_list .answer.disabled {
+    pointer-events: none;
+}
+
 .quiz_box footer {
 
     height: 90px;
@@ -235,29 +251,26 @@ body {
 
 .quiz_box footer .total_question {
 
-    display: flex;
     position: absolute;
-    user-select: none;
-    padding: 10px 240px;
-    background-color: rgb(223, 221, 221);
-    border: 1px solid rgb(181, 180, 180);
-    border-radius: 5px;
+    margin-right: 40px;
+}
 
+.quiz_box footer .total_question span {
+    display: flex;
+    user-select: none;
+    position: absolute;
 
 }
 
-.quiz_box footer .total_question p {
-    font-weight: 700;
+.quiz_box footer .total_question span p {
+    font-weight: 500;
     padding: 0 5px;
 }
 
-.quiz_box footer .total_question .current_question {
-    color: #ed4516;
-}
-
-.quiz_box footer .total_question p:first-child {
+.quiz_box footer .total_question span p:first-child {
     padding-left: 0px;
 }
+
 
 .quiz_box footer button {
 
@@ -272,6 +285,7 @@ body {
     cursor: pointer;
     pointer-events: auto;
     margin-bottom: 100px;
+    /*opacity: 0;*/
 }
 
 .quiz_box footer button:hover {
