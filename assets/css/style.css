@@ -186,23 +186,23 @@ body {
 }
 
 
-.quiz_box .question_answers {
+.quiz_box section {
     padding: 25px 30px;
 
 }
 
-.quiz_box .question_answers .question {
-    font-size: 25px;
+.quiz_box section .question {
+    font-size: 23px;
     font-weight: 500;
 }
 
-.quiz_box .question_answers .answers_list {
+.quiz_box section .answers_list {
     padding: 25px 0;
     display: block;
 
 }
 
-.quiz_box .question_answers .answers_list .answer {
+.quiz_box section .answers_list .answer {
     padding: 15px 15px;
     background-color: #f19b8362;
     border: 1px solid #eee;
@@ -213,13 +213,13 @@ body {
     font-size: 17px;
 }
 
-.quiz_box .question_answers .answers_list .answer:hover {
+.quiz_box section .answers_list .answer:hover {
     color: #871e01f0;
     background-color: #fb532462;
     border: #eee;
 }
 
-.quiz_box .question_answers .answers_list .answer:last-child {
+.quiz_box section .answers_list .answer:last-child {
     margin-bottom: 0;
 }
 
@@ -278,6 +278,12 @@ body {
     background-color: #fff;
     color: #ed4516;
     border: 1px solid #ed4516;
+}
+
+.quiz_box footer button.show_btn {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
 }
 
 .result_box {
@@ -389,7 +395,9 @@ body {
     font-weight: 600;
 }
 
-.Rules_box.visible_rules_box{
+.Rules_box.visible_rules_box,
+.result_box.visibleResultBox,
+.visibleQuizBox {
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
