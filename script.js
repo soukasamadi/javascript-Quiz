@@ -24,7 +24,7 @@ let questions = [
     {
         number: 3,
         question: "How does a FOR loop start?",
-        cAnswer: "",
+        cAnswer: "for(i = 0; i<= 5; i++)",
         optionA: "for i = 5 to 10",
         optionB: "for(i = 0; i<= 5; i++)",
         optionC: "for(i<= 5; i++)",
@@ -61,15 +61,16 @@ let startBtn = document.getElementsByClassName('start_button')[0];
 let RulesBox = document.getElementsByClassName('Rules_box')[0];
 let exit = RulesBox.getElementsByClassName('exit')[0];
 let start = RulesBox.getElementsByClassName('start')[0];
-let quizBox = document.getElementsByClassName("quiz_box")[0];
-let questionArea = document.getElementsByClassName("question")[0];
-const answerList = document.getElementsByClassName("answers_list")[0];
+let quizBox = document.getElementsByClassName('quiz_box')[0];
+let questionArea = document.getElementsByClassName('question')[0];
+let answerList = document.getElementsByClassName('answers_list')[0];
 let resultBox = document.getElementsByClassName('result_box')[0];
-let timeDescount = document.getElementsByClassName("timer timer_sec")[0];
+let timeDescount = document.getElementsByClassName('timer_sec')[0];
 let restart = resultBox.getElementsByClassName('restart')[0];
 let quit = resultBox.getElementsByClassName('quit')[0];
 let next = document.getElementsByClassName('next_question')[0];
 let footerQuestionCounter = document.getElementsByClassName('total_question')[0];
+let headertimer = document.getElementsByClassName('timer')[0];
 
 // Create all Events Listner
 startBtn.addEventListener("click", showRulesBox);    //strat Quiz Button
@@ -78,6 +79,9 @@ start.addEventListener("click", startQuiz);         //start Button
 //restart.addEventListener("click", restartQuiz);    //restart Button
 quit.addEventListener("click", quitQuiz);         //quit Quiz Button
 next.addEventListener("click", nextQuestion);    //next Button
+
+
+
 
 
 // strat Quiz Button
@@ -95,11 +99,10 @@ function startQuiz() {
     quizBox.classList.add("visibleQuizBox");
     appearQuestions(0);
     questionCounter(1);
-    /* startTimer(30);
-     questionCounter(1);*/
-
+    timerBegin(30);
 
 }
+
 
 // create some  important variables
 let questionTime = 30;  // timeValue
@@ -107,8 +110,6 @@ let countQuestion = 0; // countQuestion
 let questionN = 1;    // questionN
 let playerScore = 0; //playerScore
 let counter = 0;    // counter
-
-
 
 // restart Button
 function restartQuiz() {
@@ -123,7 +124,7 @@ function restartQuiz() {
     appearQuestions(countQuestion);
     questionCounter(questionN);
     clearCounter(counter);
-    startTimer(questionTime);
+    timerBegin(questionTime);
 
     //next.classList.remove("show_btn"); 
 }
@@ -140,13 +141,14 @@ function nextQuestion() {
         questionN++;
         appearQuestions(countQuestion);
         questionCounter(questionN);
-        clearCounter(counter);
-        startTimer(timeValue);
-        //next .classList.remove("show_btn");
+        clearInterval(counter);
+        timerBegin(questionTime);
+        next.classList.remove("show_btn");
     } else {
-        clearCounter(counter);
+        clearInterval(counter);
         showResult();
     }
+
 }
 
 
@@ -176,7 +178,10 @@ function appearQuestions(x) {
     }
 }
 
+
+
 function answerSelected(answer) {
+    clearInterval(counter);
 
     let playerAnswer = answer.textContent;
     let correctAnswer = questions[countQuestion].cAnswer;
@@ -186,13 +191,19 @@ function answerSelected(answer) {
         answer.style.backgroundColor = "#d4edda";
         answer.style.border = "2px solid #c3e6cb";
         console.log("Oh Yeee! Your answer is CORRECT!");
-
     } else {
         answer.style.color = "#721c24";
         answer.style.backgroundColor = "#f8d7da";
         answer.style.border = "2px solid #f5c6cb";
         console.log("Ooops! Your answer is WRONG!");
 
+    }
+
+    let options = answerList.children.length;
+    let i = 0;
+    while (i < options) {
+        answerList.children[i].classList.add("uncklickable");
+        i++;
     }
 }
 
@@ -201,4 +212,25 @@ function questionCounter(i) {
 
     let QuestionCounTag = '<span><p>' + i + '</p> / <p>' + questions.length + '</p> </span>';
     footerQuestionCounter.innerHTML = QuestionCounTag;
+}
+
+function timerBegin(time) {
+    timeDescount.textContent = questionTime;
+    timeDescount.style.fontSize = "large";
+    timeDescount.style.color = "#ed4516";
+    headertimer.style.width = "75px";
+    counter = setInterval(timer, 1000);
+    function timer() {
+        timeDescount.textContent = time;
+        time--;
+        if (time < 0) {
+            clearInterval(counter);
+            timeDescount.textContent = "Time OFF";
+            timeDescount.style.fontSize = "medium";
+            timeDescount.style.color = "black";
+            headertimer.style.width = "120px";
+
+        }
+    }
+
 }

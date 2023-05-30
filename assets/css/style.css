@@ -162,7 +162,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70px;
+    width: 75px;
     margin-right: 0px;
 }
 
@@ -224,7 +224,7 @@ body {
 }
 
 
-.quiz_box section .answers_list .answer.disabled {
+.quiz_box section .answers_list .answer.uncklickable {
     pointer-events: none;
 }
 
