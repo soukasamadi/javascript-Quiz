@@ -120,10 +120,10 @@ function restartQuiz() {
     questionN = 1;
     playerScore = 0;
 
-    appearQuestions(countQuestion); 
-    questionCounter(questionN); 
-    clearCounter(counter); 
-    startTimer(questionTime); 
+    appearQuestions(countQuestion);
+    questionCounter(questionN);
+    clearCounter(counter);
+    startTimer(questionTime);
 
     //next.classList.remove("show_btn"); 
 }
@@ -157,7 +157,7 @@ function nextQuestion() {
 function appearQuestions(x) {
 
     //insert Html (question + options) content 
-    let questionHtml = '<span>' + questions[x].number + ". " + questions[x].question+ '</span>';
+    let questionHtml = '<span>' + questions[x].number + ". " + questions[x].question + '</span>';
 
     questionArea.innerHTML = questionHtml;
 
@@ -177,36 +177,28 @@ function appearQuestions(x) {
 }
 
 function answerSelected(answer) {
-    clearCounter(counter);
 
     let playerAnswer = answer.textContent;
     let correctAnswer = questions[countQuestion].cAnswer;
-    const allOptions = answerList.children.length;
 
     if (playerAnswer == correctAnswer) {
-        playerScore += 1;
-        answer.classList.add("correct");
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + playerScore);
-    } else {
-        answer.classList.add("incorrect");
-        console.log("Wrong Answer");
+        answer.style.color = "#155724";
+        answer.style.backgroundColor = "#d4edda";
+        answer.style.border = "2px solid #c3e6cb";
+        console.log("Oh Yeee! Your answer is CORRECT!");
 
-        for (i = 0; i < allOptions; i++) {
-            if (answerList.children[i].textContent == correctAnswer) {
-                answerList.children[i].setAttribute("class", "option correct");
-            }
-        }
-    }
-    for (i = 0; i < allOptions; i++) {
-        answerList.children[i].classList.add("disabled");
-       // next.classList.add("show_btn");
+    } else {
+        answer.style.color = "#721c24";
+        answer.style.backgroundColor = "#f8d7da";
+        answer.style.border = "2px solid #f5c6cb";
+        console.log("Ooops! Your answer is WRONG!");
+
     }
 }
 
 
 function questionCounter(i) {
-    
-    let totalQueCounTag = '<span><p>' + i + '</p> of <p>' + questions.length + '</p> </span>';
-    footerQuestionCounter.innerHTML = totalQueCounTag;  
+
+    let QuestionCounTag = '<span><p>' + i + '</p> / <p>' + questions.length + '</p> </span>';
+    footerQuestionCounter.innerHTML = QuestionCounTag;
 }

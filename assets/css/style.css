@@ -204,7 +204,7 @@ body {
 
 .quiz_box section .answers_list .answer {
     padding: 15px 15px;
-    background-color: #f19b8362;
+    background-color: #9a9a9962;
     border: 1px solid #eee;
     border-radius: 5px;
     margin-bottom: 15px;
@@ -215,7 +215,7 @@ body {
 
 .quiz_box section .answers_list .answer:hover {
     color: #871e01f0;
-    background-color: #fb532462;
+    background-color: #56565562;
     border: #eee;
 }
 
@@ -223,17 +223,6 @@ body {
     margin-bottom: 0;
 }
 
-.quiz_box section .answers_list .answer.correct {
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-
-.quiz_box section .answers_list .answer.incorrect {
-    color: #721c24;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
-}
 
 .quiz_box section .answers_list .answer.disabled {
     pointer-events: none;
