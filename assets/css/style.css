@@ -177,14 +177,6 @@ body {
     color: #ed4516;
 }
 
-.time_line_des {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 3px;
-    background: #ed4516;
-}
-
 
 .quiz_box section {
     padding: 25px 30px;
@@ -261,7 +253,7 @@ body {
 }
 
 
-.quiz_box footer button {
+.quiz_box footer .next_question {
 
     background-color: #ed4516;
     color: #fff;
@@ -272,22 +264,17 @@ body {
     outline: none;
     border-radius: 5px;
     cursor: pointer;
-    pointer-events: auto;
+    pointer-events: none;
     margin-bottom: 100px;
-    /*opacity: 0;*/
+
 }
 
-.quiz_box footer button:hover {
+.quiz_box footer .next_question:hover {
     background-color: #fff;
     color: #ed4516;
     border: 1px solid #ed4516;
 }
 
-.quiz_box footer button.show_btn {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
 
 .result_box {
     opacity: 0;

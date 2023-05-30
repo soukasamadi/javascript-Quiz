@@ -143,16 +143,13 @@ function nextQuestion() {
         questionCounter(questionN);
         clearInterval(counter);
         timerBegin(questionTime);
-        next.classList.remove("show_btn");
+        next.style.pointerEvents = "none";
     } else {
         clearInterval(counter);
         showResult();
     }
 
 }
-
-
-
 
 
 //destoring questions from the array
@@ -205,6 +202,7 @@ function answerSelected(answer) {
         answerList.children[i].classList.add("uncklickable");
         i++;
     }
+    next.style.pointerEvents = "auto";
 }
 
 
@@ -215,13 +213,13 @@ function questionCounter(i) {
 }
 
 function timerBegin(time) {
-    timeDescount.textContent = questionTime;
-    timeDescount.style.fontSize = "large";
-    timeDescount.style.color = "#ed4516";
-    headertimer.style.width = "75px";
+
     counter = setInterval(timer, 1000);
     function timer() {
         timeDescount.textContent = time;
+        timeDescount.style.fontSize = "large";
+        timeDescount.style.color = "#ed4516";
+        headertimer.style.width = "75px";
         time--;
         if (time < 0) {
             clearInterval(counter);
