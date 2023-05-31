@@ -280,6 +280,13 @@ function timerBegin(time) {
             timeDescount.style.fontSize = "medium";
             timeDescount.style.color = "black";
             headertimer.style.width = "120px";
+            let options = answerList.children.length;
+            let i = 0;
+            while (i < options) {
+                answerList.children[i].classList.add("uncklickable");
+                i++;
+            }
+            next.style.pointerEvents = "auto";
 
         }
     }
