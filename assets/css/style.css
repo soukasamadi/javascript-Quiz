@@ -390,3 +390,50 @@ body {
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
+
+@media (max-width : 480px) {
+
+    .quiz_box,
+    .Rules_box,
+    .result_box {
+        width: 360px;
+    }
+
+    .start_button button {
+        font-size: 20px;
+    }
+
+    .Rules_box .buttons button i {
+        padding-left: 30px;
+    }
+
+
+    .quiz_box header .title {
+        font-size: 16px;
+    }
+
+    .quiz_box header .title i {
+        font-size: 30px;
+    }
+
+    .quiz_box header .timer .time_icon {
+        font-size: 20px;
+    }
+
+    .quiz_box footer .next_question {
+        padding: 10px 150px;
+    }
+
+    .result_box .text {
+        font-size: 19px;
+    }
+
+    .result_box .buttons .restart {
+        padding: 10px 120px;
+    }
+
+    .result_box .buttons .quit {
+        padding: 10px 120px;
+        font-size: 10px;
+    }
+}
