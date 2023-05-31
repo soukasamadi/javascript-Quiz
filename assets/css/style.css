@@ -125,8 +125,8 @@ body {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4),
         0 8055px 20px 0 rgba(0, 0, 0, 0.2);
     opacity: 0;
-    transition: all 0.3s ease;
-    transform: translate(-50%, -50%) scale(0.9);
+    transition: all .4s ease-in-out;
+    transform: translate(-50%, -50%) scale(1.5);
 
 }
 
@@ -178,23 +178,23 @@ body {
 }
 
 
-.quiz_box section {
+.quiz_box .section {
     padding: 25px 30px;
 
 }
 
-.quiz_box section .question {
+.quiz_box .section .question {
     font-size: 23px;
     font-weight: 500;
 }
 
-.quiz_box section .answers_list {
+.quiz_box .section .answers_list {
     padding: 25px 0;
     display: block;
 
 }
 
-.quiz_box section .answers_list .answer {
+.quiz_box .section .answers_list .answer {
     padding: 15px 15px;
     background-color: #9a9a9962;
     border: 1px solid #eee;
@@ -205,18 +205,18 @@ body {
     font-size: 17px;
 }
 
-.quiz_box section .answers_list .answer:hover {
+.quiz_box .section .answers_list .answer:hover {
     color: #871e01f0;
     background-color: #56565562;
     border: #eee;
 }
 
-.quiz_box section .answers_list .answer:last-child {
+.quiz_box .section .answers_list .answer:last-child {
     margin-bottom: 0;
 }
 
 
-.quiz_box section .answers_list .answer.uncklickable {
+.quiz_box .section .answers_list .answer.uncklickable {
     pointer-events: none;
 }
 
@@ -299,6 +299,24 @@ body {
 
 }
 
+.result_box .text span {
+    position: relative;
+    color: #661904;
+}
+
+.result_box .text span::before {
+
+    background-color: #fb532462;
+    content: "";
+    position: absolute;
+    width: calc(100% + 5px);
+    height: 60%;
+    left: -3px;
+    bottom: 0;
+    z-index: -1;
+    transform: rotate(-2deg);
+}
+
 .result_box .icon {
     font-size: 70px;
     color: #ed4516;
@@ -353,37 +371,16 @@ body {
     color: #fff;
 }
 
-.result_box .text span {
-    position: relative;
-    color: #661904;
-}
 
-.result_box .text span::before {
-
-    background-color: #fb532462;
-    content: "";
-    position: absolute;
-    width: calc(100% + 5px);
-    height: 60%;
-    left: -3px;
-    bottom: 0;
-    z-index: -1;
-    transform: rotate(-2deg);
-}
-
-.result_box .score_text span {
+.result_box .score span {
     display: flex;
+    margin: 0 auto;
     font-size: 18px;
-    font-weight: 500;
-    margin: 10px 0;
-    border-bottom: 2px solid #eee;
-
+    font-weight: 700;
+    background-color: #fb532462;
 }
 
-.result_box .score_text span p {
-    padding: 0 4px;
-    font-weight: 600;
-}
+
 
 .Rules_box.visible_rules_box,
 .result_box.visibleResultBox,

@@ -1,4 +1,4 @@
-//questions, answers and options Array 
+//Create Array containing question number, question, answer and options.
 
 let questions = [
     {
@@ -55,7 +55,7 @@ let questions = [
 ];
 
 
-// get All needed Elements from index.html file
+// Get All needed Elements from index.html file.
 
 let startBtn = document.getElementsByClassName('start_button')[0];
 let RulesBox = document.getElementsByClassName('Rules_box')[0];
@@ -71,51 +71,69 @@ let quit = resultBox.getElementsByClassName('quit')[0];
 let next = document.getElementsByClassName('next_question')[0];
 let footerQuestionCounter = document.getElementsByClassName('total_question')[0];
 let headertimer = document.getElementsByClassName('timer')[0];
+let score = document.getElementsByClassName('score')[0];
 
-// Create all Events Listner
-startBtn.addEventListener("click", showRulesBox);    //strat Quiz Button
-exit.addEventListener("click", backInitialStartBtn); //exit Button  
-start.addEventListener("click", startQuiz);         //start Button
-//restart.addEventListener("click", restartQuiz);    //restart Button
-quit.addEventListener("click", quitQuiz);         //quit Quiz Button
-next.addEventListener("click", nextQuestion);    //next Button
-
-
-
+// Create all Events Listner.
+startBtn.addEventListener("click", showRulesBox);
+exit.addEventListener("click", backInitialStartBtn);
+start.addEventListener("click", startQuiz);
+restart.addEventListener("click", restartQuiz);
+quit.addEventListener("click", quitQuiz);
+next.addEventListener("click", nextQuestion);
 
 
-// strat Quiz Button
+
+
+
+/**
+ * When you click on Start button,
+ * the rules box will apper on the screen.
+ */
 function showRulesBox() {
     RulesBox.classList.add("visible_rules_box");
 }
-//Exit Button
+
+/**
+ * When you click on exit button,
+ * you exit the quiz and will be redirected 
+ * to the first screen containing the Start button.
+ */
 function backInitialStartBtn() {
     RulesBox.classList.remove("visible_rules_box");
 }
 
-// start Button
+/**
+ * When you click on start quiz button,
+ * the quiz box screen will appear to start the quiz.
+ */
 function startQuiz() {
     RulesBox.classList.remove("visible_rules_box");
     quizBox.classList.add("visibleQuizBox");
     appearQuestions(0);
     questionCounter(1);
-    timerBegin(30);
+    timerBegin(29);
 
 }
 
 
-// create some  important variables
-let questionTime = 30;  // timeValue
-let countQuestion = 0; // countQuestion
-let questionN = 1;    // questionN
-let playerScore = 0; //playerScore
-let counter = 0;    // counter
+// Create some  important variables for the next functions.
+let questionTime = 30;
+let countQuestion = 0;
+let questionN = 1;
+let counter = 0;
+let playerScore = 0;
 
-// restart Button
+
+/**
+ * When you click on restart button,
+ * you will be redirected to the quiz box screen
+ * to restart the quiz.
+ */
 function restartQuiz() {
-    quizBox.classList.add("visibleQuizBox");
     resultBox.classList.remove("visibleResultBox");
+    quizBox.classList.add("visibleQuizBox");
 
+    // Back to initial values.
     questionTime = 30;
     countQuestion = 0;
     questionN = 1;
@@ -126,15 +144,23 @@ function restartQuiz() {
     clearCounter(counter);
     timerBegin(questionTime);
 
-    //next.classList.remove("show_btn"); 
 }
 
-//quit Quiz Button
+/**
+ * When you click on quit button,
+ * the app will be reloaded to restart it from beginning. 
+ */
 function quitQuiz() {
     window.location.reload();
 }
 
-//next Button
+/**
+ * When you click on next Button,
+ * the next question will appear 
+ * and you will be able to select an option
+ * until the questions are completed.
+ * the last next button will redirect you to the result Box.
+ */
 function nextQuestion() {
     if (countQuestion < questions.length - 1) {
         countQuestion++;
@@ -146,13 +172,18 @@ function nextQuestion() {
         next.style.pointerEvents = "none";
     } else {
         clearInterval(counter);
-        showResult();
+        showResultBox();
     }
 
 }
 
 
-//destoring questions from the array
+/**
+ * 1. Destoring questions from the array.
+ * 2. Adding new span tag inside question.
+ * 3. Adding new div tag inside answers_list.
+ * 4. Set onclick attribute to all the options.  
+ */
 function appearQuestions(x) {
 
     //insert Html (question + options) content 
@@ -176,7 +207,17 @@ function appearQuestions(x) {
 }
 
 
-
+/**
+ * When you click an option:
+ * the timer will stop.
+ * if you select the correct answer:
+ * score will upgrade with 1 and make the selected option color green.
+ * else :
+ * the selected option color will be red.
+ * Once you select an option :
+ * all others options will be uncklickable.
+ * the next buttob will be cklickable.
+ */
 function answerSelected(answer) {
     clearInterval(counter);
 
@@ -188,6 +229,8 @@ function answerSelected(answer) {
         answer.style.backgroundColor = "#d4edda";
         answer.style.border = "2px solid #c3e6cb";
         console.log("Oh Yeee! Your answer is CORRECT!");
+        playerScore++;
+        console.log(playerScore);
     } else {
         answer.style.color = "#721c24";
         answer.style.backgroundColor = "#f8d7da";
@@ -205,13 +248,22 @@ function answerSelected(answer) {
     next.style.pointerEvents = "auto";
 }
 
-
+/**
+ * Creating a new span tag to add the question number and total question number.
+ */
 function questionCounter(i) {
 
     let QuestionCounTag = '<span><p>' + i + '</p> / <p>' + questions.length + '</p> </span>';
     footerQuestionCounter.innerHTML = QuestionCounTag;
 }
 
+
+/**
+ * 
+ * Decrement the time value.
+ * if timer is less than 0:
+ * clear counter and change the 0 number text to Time OFF.
+ */
 function timerBegin(time) {
 
     counter = setInterval(timer, 1000);
@@ -221,6 +273,7 @@ function timerBegin(time) {
         timeDescount.style.color = "#ed4516";
         headertimer.style.width = "75px";
         time--;
+
         if (time < 0) {
             clearInterval(counter);
             timeDescount.textContent = "Time OFF";
@@ -231,4 +284,24 @@ function timerBegin(time) {
         }
     }
 
+}
+
+
+/**
+ * Show the player Score with a different message deppending on his score. 
+ */
+function showResultBox() {
+    RulesBox.classList.remove("visible_rules_box");
+    quizBox.classList.remove("visibleQuizBox");
+    resultBox.classList.add("visibleResultBox");
+    if (playerScore == 5) {
+        score.innerHTML = '<span> Great! , You got ' + playerScore + '  / ' + questions.length + '</span>';
+    } else if (playerScore > 3) {
+        score.innerHTML = '<span>That\'s good!, You got ' + playerScore + ' / ' + questions.length + '</span>';
+    } else if (playerScore > 1) {
+        score.innerHTML = '<span>Not bad!, You got ' + playerScore + ' / ' + questions.length + '</span>';
+    } else {
+        score.innerHTML = '<span>Try again!, You got ' + playerScore + ' / ' + questions.length + '</span>';
+
+    }
 }
