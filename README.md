@@ -39,6 +39,10 @@ You can find the live site [here](https://soukasamadi.github.io/javascript-Quiz/
 
 ![Result](https://github.com/soukasamadi/javascript-Quiz/assets/131408125/608d07e5-c121-407d-89c1-9246331e91c9)
 
+## Wireframing
+I've created this schematic before starting with Html/Css and Javascript to get an idea about the structure.
+![wireframing](https://github.com/soukasamadi/javascript-Quiz/assets/131408125/68e8cc5c-c707-469f-aa04-664e67acf950)
+
 
 # Technologies Used
 
