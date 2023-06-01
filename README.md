@@ -1,7 +1,7 @@
 # JavaScript Quiz
 JavaScript Quiz is a site that hopes to demonstrate how pure JavaScript works in a real-world context. The site will be targeted toward people who want to test their knowldge about Javascript. the quiz contains 5 questions and the user have only 30s to answer every question.
 
-You can find the live site [here](https://soukasamadi.github.io/yogamoves/index.html)
+You can find the live site [here](https://soukasamadi.github.io/javascript-Quiz/)
 
 ![responsive](https://github.com/soukasamadi/javascript-Quiz/assets/131408125/3d0ac9e4-5716-44ef-93c3-d404c1034abc)
 
